@@ -1,83 +1,181 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link href='http://fonts.useso.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+            <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+            <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+            <link rel="stylesheet" type="text/css" href="stylesheets/zepto.alert.css">
+            <script type="text/javascript" src="http://libs.useso.com/js/zepto/1.1.3/zepto.min.js"></script>
+            <script type="text/javascript" src="zepto.alert.min.js"></script>
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
-    <title>Tiny-Alert by shootyou</title>
-  </head>
-
-  <body>
-    <header>
-      <div class="inner">
-        <h1>Tiny-Alert</h1>
-        <h2>A JavaScript Lib Based On Zepto</h2>
-        <a href="https://github.com/shootyou/Tiny-Alert" class="button"><small>View project on</small>GitHub</a>
-      </div>
-    </header>
-
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+            <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <![endif]-->
+            <script type="text/javascript">
+                                
+                    $(function() {
+                        
+                        // 创建一个对话框
+                        $('#demo-3').on('click', function() {
+                            $.dialog({
+                                content : '对话框内容',
+                                title : 'ok',
+                                ok : function() {
+                                    alert('我是确定按钮，回调函数返回false时不会关闭对话框。');
+                                    return false;
+                                },
+                                cancel : function() {
+                                    alert('我是取消按钮');
+                                },
+                                lock : false
+                            });
+                        });
+                        
+                        // 2秒自动关闭
+                        $('#demo-2').on('click', function() {
+                            $.dialog({
+                                content : '窗口将在2秒后自动关闭',
+                                title: "alert",
+                                time : 2000
+                            });
+                        });
+                        $('#demo-1').on('click', function() {
+                            $.dialog();
+                        });
+                        
+                    })
+                                
+            </script>
+            <title>Tiny-Alert by shootyou</title>
+        </head>
+        <body>
+            <header>
+                <div class="inner">
+                    <h1>Tiny-Alert</h1>
+                    <h2>A JavaScript Lib Based On Zepto</h2>
+                    <a href="https://github.com/shootyou/Tiny-Alert" class="button"><small>View project on</small>GitHub</a>
+                </div>
+            </header>
+            <div id="content-wrapper">
+                <div class="inner clearfix">
+                    <section id="main-content">
+                        <h3><span class="octicon octicon-link"></span>什么是Tiny-Alert？</h3>
+                        <p>
+                        这是一个基于Zepto的提示框插件，在移动端使用会有更好的效果。它被设计成是移动端原生alert和confirm提示框的更美观替代品。同时它还实现了一个loading效果。它的核心代码参考了<a href="https://github.com/ispxin/rDialog">rDailog</a>，在它基础上适配了zepto，去掉了移动端用不到的特性，另外让它看上去更美观了。<br/>
+                        它有如下特性：
+                        <ul>
+                            <li>轻量级，代码量不超过300行，压缩后仅2k。</li>
+                            <li>基于zepto更适合移动端。</li>
+                            <li>支持回调。</li>
+                            <li>勉强还算美观。</li>
+                            <li>基于Grunt构建。这样子就感觉自己越来越像个前端攻城师了。</li>
+                        </ul>
+                        </p>
+                        <h3><span class="octicon octicon-link"></span>如何使用Tiny-Alert</h3>
+                        <p>首先引入相关资源：
+<pre><code>
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;stylesheets/zepto.alert.css&quot;&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://libs.useso.com/js/zepto/1.1.3/zepto.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/zepto.alert.min.js&quot;&gt;&lt;/script&gt;
 </code></pre>
+                        如果你觉得样式丑，自己改改吧。注意一下images下面的资源。
+                        </p>
+                        <p>然后这样就可以构造一个最简单的加载中的提示框了。
+<pre><code>
+$('#demo-1').on('click', function() {
+        $.dialog();
+});
+</code></pre>
+                        <a id="demo-1" href="#">点击此处</a>看看效果。默认他是一个遮罩的不会消失的框。如果你点了还是刷新一下页面吧，它不会消失的。</p>
+                        <p>
+                        	再来构造一个提醒弹出框。
+<pre><code>
+$('#demo-2').on('click', function() {
+    $.dialog({
+        content : '窗口将在2秒后自动关闭',
+        title: "alert",
+        time : 2000
+    });
+});
+</code></pre>
+<a id="demo-2" href="#">点击此处</a>看看效果。这个弹出框2秒就关闭了。
+                        </p>
+                        <p>
+                        	再来是一个确认框，支持回调的。
+<pre><code>
+$('#demo-3').on('click', function() {
+    $.dialog({
+        content : '对话框内容',
+        title : 'ok',
+        ok : function() {
+            alert('我是确定按钮，回调函数返回false时不会关闭对话框。');
+            return false;
+        },
+        cancel : function() {
+            alert('我是取消按钮');
+        },
+        lock : false
+    });
+});
+</code></pre>           
+<a id="demo-3" href="#">点击此处</a>看看效果。            	
+                        </p>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+                        <h3><span class="octicon octicon-link"></span>属性和默认值</h3>
+                        <pre><code>
+        // 内容
+        content: '加载中...',
+        
+        // 图标样式：load/ok/alert
+        title: 'load',
+        
+        // 宽度
+        width: 'auto',
+        
+        // 高度
+        height: 'auto',
+        
+        // 确定按钮回调函数
+        ok: null,
+        
+        // 取消按钮回调函数
+        cancel: null,
+        
+        // 确定按钮文字
+        okText: '确定',
+        
+        // 取消按钮文字
+        cancelText: '取消',
+        
+        // 自动关闭时间(毫秒)
+        time: null,
+        
+        // 是否锁屏
+        lock: true,
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+        // z-index值
+        zIndex: 9999
+                        </code></pre>   
+                        <p>初次玩前端，望多指教。</p> 
+                    </section>
+                    <aside id="sidebar">
+                        <a href="https://github.com/shootyou/Tiny-Alert/zipball/master" class="button">
+                        <small>Download</small>
+                        .zip file
+                        </a>
+                        <a href="https://github.com/shootyou/Tiny-Alert/tarball/master" class="button">
+                        <small>Download</small>
+                        .tar.gz file
+                        </a>
+                        <p class="repo-owner"><a href="https://github.com/shootyou/Tiny-Alert"></a> is maintained by <a href="https://github.com/shootyou">shootyou</a>.</p>
+                        <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+                    </aside>
+                </div>
+            </div>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-        </section>
-
-        <aside id="sidebar">
-          <a href="https://github.com/shootyou/Tiny-Alert/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/shootyou/Tiny-Alert/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
-
-          <p class="repo-owner"><a href="https://github.com/shootyou/Tiny-Alert"></a> is maintained by <a href="https://github.com/shootyou">shootyou</a>.</p>
-
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
-    </div>
-
-  
-  </body>
-</html>
+        </body>
+    </html>

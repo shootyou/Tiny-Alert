@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <title>zepto alert</title>
+        <link rel="stylesheet" href="/bower_components/normalize-css/normalize.css">
+        <link rel="stylesheet" href="/css/base/base.css">
+        <script type="text/javascript" src="/bower_components/zepto/zepto.min.js"></script>
+        <script type="text/javascript" src="js/zepto.alert.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/zepto.alert.css">
+        <script type="text/javascript">
+                    
+        $(function() {
+            
+            // 创建一个对话框
+            $('#demo-1').on('click', function() {
+                $.dialog({
+                    content : '对话框内容',
+                    title : 'ok',
+                    ok : function() {
+                        alert('我是确定按钮，回调函数返回false时不会关闭对话框。');
+                        return false;
+                    },
+                    cancel : function() {
+                        alert('我是取消按钮');
+                    },
+                    lock : false
+                });
+            });
+            
+            // 2秒自动关闭
+            $('#demo-2').on('click', function() {
+                $.dialog({
+                    content : '窗口将在2秒后自动关闭',
+                    title: "alert",
+                    time : 2000
+                });
+            });
+
+            $('#demo-3').on('click', function() {
+                $.dialog();
+            });
+            
+        })
+                    
+        </script>
+    </head>
+    <body>
+
+        <div class="demo-container">
+
+            <h2>创建一个对话框，不加遮罩</h2>
+            <p>
+            <pre>
+            $.dialog({
+                    content : '对话框内容',
+                    title : 'ok',
+                    ok : function() {
+                        alert('我是确定按钮，回调函数返回false时不会关闭对话框。');
+                        return false;
+                    },
+                    cancel : function() {
+                        alert('我是取消按钮');
+                    },
+                    lock : false
+                });
+            </pre>
+            </p>
+            <div class="buttonDemo">
+                <a href="javascript:;" id="demo-1">运行</a>
+            </div>
+
+
+
+            <h2>2秒自动关闭</h2>
+            <p>
+            <pre>
+            $.dialog({
+                    content : '窗口将在2秒后自动关闭',
+                    title: "alert",
+                    time : 2000
+                });
+            </pre>
+            </p>
+            <div class="buttonDemo">
+                <a href="javascript:;" id="demo-2">运行</a>
+            </div>
+
+            <h2>加载中，不会消失</h2>
+            <p>
+            <pre>
+            $.dialog();
+            </pre>
+            </p>
+            <div class="buttonDemo">
+                <a href="javascript:;" id="demo-3">运行</a>
+            </div>
+
+        </div>
+
+    </body>
+</html>
