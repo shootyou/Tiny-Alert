@@ -6,7 +6,8 @@
         <title>zepto alert</title>
         <link rel="stylesheet" href="/bower_components/normalize-css/normalize.css">
         <link rel="stylesheet" href="/css/base/base.css">
-        <script type="text/javascript" src="/bower_components/zepto/zepto.min.js"></script>
+        <!--<script type="text/javascript" src="/bower_components/zepto/zepto.min.js"></script>-->
+		<script type="text/javascript" src="http://libs.useso.com/js/jquery/2.1.1/jquery.min.js"></script>
         <script type="text/javascript" src="js/zepto.alert.js"></script>
         <link rel="stylesheet" type="text/css" href="css/zepto.alert.css">
         <script type="text/javascript">
@@ -16,7 +17,7 @@
             // 创建一个对话框
             $('#demo-1').on('click', function() {
                 $.dialog({
-                    content : '对话框内容',
+                    content : '对话框内容对话框内容对话框内容对话框内容对话框内容对话框内容',
                     title : 'ok',
                     ok : function() {
                         alert('我是确定按钮，回调函数返回false时不会关闭对话框。');
@@ -34,6 +35,7 @@
                 $.dialog({
                     content : '窗口将在2秒后自动关闭',
                     title: "alert",
+					width: 600,
                     time : 2000
                 });
             });
@@ -79,6 +81,7 @@
             $.dialog({
                     content : '窗口将在2秒后自动关闭',
                     title: "alert",
+					width: 600,
                     time : 2000
                 });
             </pre>

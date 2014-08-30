@@ -119,9 +119,7 @@
                 width : this.settings.width,
                 height : this.settings.height
             });
-
-            wrap.width(content.width());
-            
+            //wrap.width(content.width());
         },
         
         /**
@@ -236,4 +234,4 @@
     
     window.rDialog = $.rDialog = $.dialog = rDialog;
     
-})(Zepto, window);
+})(window.jQuery || window.Zepto, window);
