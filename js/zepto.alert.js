@@ -229,7 +229,7 @@
     }
     
     var rDialog = function(options) {
-        new Dialog(options);
+        return new Dialog(options);
     }
     
     window.rDialog = $.rDialog = $.dialog = rDialog;
