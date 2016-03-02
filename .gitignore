@@ -1,0 +1,9 @@
+# ignore .idea folder
+.idea/
+.DS_Store
+*~
+*.swp
+npm-debug.log
+libpeerconnection.log
+/bower_components
+/node_modules
