@@ -1,16 +1,22 @@
 {
-  "name": "skin",
-  "version": "0.1.0",
-  "main": "build/skin.css",
-  "devDependencies": {
-    "normalize-css": "~3.0.0",
-    "zepto":"~1.1.0"
-  },
-  "description": "Skin for Yunxin",
+  "name": "tkTinyAlert",
+  "homepage": "https://github.com/Tedko/Tiny-Alert",
   "authors": [
-    "Yunnex"
+    "Han <yanhan02008@gmail.com>"
+  ],
+  "description": "a simple js Alert Lib Based On Zepto",
+  "main": "/*",
+  "moduleType": [],
+  "keywords": [
+    "alert",
+    "zepto",
+    "js"
   ],
   "license": "MIT",
-  "homepage": "http://www.yunnex.com",
-  "private": true
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
 }
